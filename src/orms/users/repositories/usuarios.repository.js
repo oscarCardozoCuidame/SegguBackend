@@ -20,6 +20,8 @@ const UserRepository = {
 
   update: async (id, userData) => {
     const user = await User.findByPk(id);
+    console.log(user);
+    console.log(userData);
     if (!user) {
       throw new Error('User not found');
     }
