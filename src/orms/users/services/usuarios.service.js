@@ -2,6 +2,7 @@ const UserRepository = require('../repositories/usuarios.repository');
 const { buildImage, deleteImage } = require('../../../utils/imageHandler');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const path = require("path");
 
 const UserService = {
   getAllUsers: async () => {
