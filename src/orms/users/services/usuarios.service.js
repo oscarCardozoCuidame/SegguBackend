@@ -3,6 +3,7 @@ const { buildImage, deleteImage } = require('../../../utils/imageHandler');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const path = require("path");
+const fs = require("fs");
 
 const UserService = {
   getAllUsers: async () => {
