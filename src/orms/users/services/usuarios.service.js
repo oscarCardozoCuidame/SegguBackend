@@ -14,7 +14,18 @@ const UserService = {
   },
 
   getUserById: async (id) => {
-    return UserRepository.getById(id);
+    const user = UserRepository.getById(id);
+
+    const imagePath = path.resolve(`../uploads/images/imageProfile/${user.img_profile_path}`);
+
+    if (!fs.existsSync(imagePath)) {
+      throw new Error("El archivo de la imagen no existe en el sistema.");
+    }
+
+    const imageBuffer = fs.readFileSync(imagePath);
+    user.img_profile_path = imageBuffer.toString("base64");
+
+    return user;
   },
 
   createUser: async (userData) => {
