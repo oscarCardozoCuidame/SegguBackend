@@ -4,7 +4,7 @@ const User = require('../models/user.model');
 const UserRepository = {
   getAll: async () => {
     return User.findAll({
-      attributes: ['id', 
+      attributes: ['user_id', 
                    'username', 
                    'name', 
                    'lastname', 
@@ -22,7 +22,7 @@ const UserRepository = {
 
   getById: async (id) => {
     return User.findByPk(id, {
-      attributes: ['id', 
+      attributes: ['user_id', 
                    'username', 
                    'name', 
                    'lastname', 
