@@ -2,8 +2,6 @@ const { DataTypes } = require('sequelize');
 const db = require('../../../config/conexion');
 const User = require('../../users/models/user.model');
 const Company = require('../../companies/models/companies.model');
-const Beneficiary = require('./beneficiaries.model');
-const Active = require('./actives.model');
 
 const Insurance = db.define('Insurance', {
   insurance_id: {
@@ -19,20 +17,36 @@ const Insurance = db.define('Insurance', {
       key: 'user_id',
     },
   },
-  beneficiary_id: {
+  health_id: {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: Beneficiary,
-      key: "beneficiary_id",
+      model: healthInsuraces,
+      key: "health_id",
     },
   },
-  active_id: {
+  soat_id: {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: Active,
-      key: "active_id",
+      model: soatInsuraces,
+      key: "soat_id",
+    },
+  },
+  home_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: homeInsuraces,
+      key: "home_id",
+    },
+  },
+  vehicle_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: vehicleInsuraces,
+      key: "vehicle_id",
     },
   },
   product: {
