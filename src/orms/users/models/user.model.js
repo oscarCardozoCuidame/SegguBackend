@@ -29,10 +29,6 @@ const User = db.define('User', {
     allowNull: false,
     unique: true,
   },
-  company: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-  },
   role: {
     type: DataTypes.STRING(50),
     allowNull: false,
